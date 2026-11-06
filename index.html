@@ -107,7 +107,7 @@ nav .awning{position:absolute;left:0;right:0;top:100%;pointer-events:none}
 .side-quote{font-family:var(--poster);color:var(--navy);font-size:1.3rem;line-height:1.2}
 .side-quote span{display:block;font-family:var(--label);letter-spacing:.25em;font-size:.7rem;color:var(--red);text-transform:uppercase;margin-bottom:6px}
 
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px;max-width:720px;margin-left:auto;margin-right:auto}
 .card{background:var(--paper);border:2px solid var(--navy);padding:22px 16px;position:relative;box-shadow:6px 6px 0 var(--red)}
 .card::before{content:"★";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--cream);color:var(--gold);padding:0 8px;font-size:1.1rem}
 .card h3{font-family:var(--label);letter-spacing:.3em;text-transform:uppercase;color:var(--red);font-size:.85rem;margin-bottom:6px}
@@ -269,9 +269,8 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
     </div>
 
     <div class="cards">
-      <div class="card"><h3>When</h3><div class="big">Saturday<br>December 19, 2026</div><div class="sm">at 2:30pm</div></div>
+      <div class="card"><h3>When</h3><div class="big">Saturday<br>December 19, 2026</div><div class="sm">at 11:30am</div></div>
       <div class="card"><h3>Where</h3><div class="big">10 Valley View Circle</div><div class="sm">Bellingham, WA 98229<br>parking is limited; carpooling encouraged</div></div>
-      <div class="card"><h3>Attire</h3><div class="big">Festive</div><div class="sm">bibs optional,<br>naps encouraged</div></div>
     </div>
 
     <div class="countdown-wrap">
@@ -295,7 +294,7 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
     <h2>The Afternoon</h2>
     <p class="lede">An approximate programme, subject to the guest of honour's mood.</p>
     <ol class="acts">
-      <li class="act"><div class="num">Act I</div><div class="when">Half past two</div><h3>Arrivals &amp; Greetings</h3><p>Guests are greeted by the guest of honour and his very proud parents.</p></li>
+      <li class="act"><div class="num">Act I</div><div class="when">Half past eleven</div><h3>Arrivals &amp; Greetings</h3><p>Guests are greeted by the guest of honour and his very proud parents.</p></li>
       <li class="act"><div class="num">Act II</div><div class="when">To follow</div><h3>A Winter Luncheon</h3><p>A seasonal spread for the grown-ups, with a seat of honour for the birthday boy.</p></li>
       <li class="act"><div class="num">Act III</div><div class="when">The main event</div><h3>The First Cake</h3><p>Ren will approach his first cake however he sees fit. Front-row guests, consider yourselves warned.</p></li>
       <li class="act"><div class="num">Act IV</div><div class="when">With gratitude</div><h3>A Fond Farewell</h3><p>Hugs, waves and goodbyes, with the guest of honour's sincere thanks for coming.</p></li>
@@ -335,9 +334,9 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
     <div class="label">For our guests</div>
     <h2>The Details</h2>
     <div class="details">
-      <div class="poster"><span class="label">When</span><h3>Saturday, December 19, 2026</h3><p>Beginning at 2:30pm.</p><button class="btn" id="cal">Add to calendar</button></div>
+      <div class="poster"><span class="label">When</span><h3>Saturday, December 19, 2026</h3><p>Beginning at 11:30am.</p><button class="btn" id="cal">Add to calendar</button></div>
       <div class="poster"><span class="label">Where</span><h3>10 Valley View Circle</h3><p>Bellingham, WA 98229</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=10%20Valley%20View%20Circle%20Bellingham%20WA%2098229">Get directions</a></div>
-      <div class="poster"><span class="label">Parking</span><h3>Limited, so please carpool</h3><p>Space near the house is tight. Coming together in one car helps everyone find a spot, and gives you someone to compare notes with on the drive home.</p></div>
+      <div class="poster"><span class="label">Parking</span><h3>Limited, so please carpool</h3><p>Space near the house is tight, so coming together in one car helps everyone find a spot. Some guests will receive special parking directions from us before the party. If you get them, please follow those instead.</p></div>
       <div class="poster"><span class="label">Attire</span><h3>Festive</h3><p>Something merry and bright. It's December in Bellingham, so bring a warm coat for the walk in.</p></div>
     </div>
   </div>
@@ -459,7 +458,7 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
   lb.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));sx=null;});
 
   // Countdown
-  var target=new Date('2026-12-19T14:30:00-08:00').getTime();
+  var target=new Date('2026-12-19T11:30:00-08:00').getTime();
   function tick(){var d=Math.max(0,target-Date.now());
     document.getElementById('d').textContent=Math.floor(d/864e5);
     document.getElementById('h').textContent=pad(Math.floor(d/36e5)%24);
@@ -471,7 +470,7 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
   document.getElementById('cal').addEventListener('click',function(){
     var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ren Turns One//EN','BEGIN:VEVENT',
       'UID:ren-turns-one-20261219@renhorsman.com','DTSTAMP:20261101T000000Z',
-      'DTSTART:20261219T223000Z','DTEND:20261220T013000Z',
+      'DTSTART:20261219T193000Z','DTEND:20261219T223000Z',
       "SUMMARY:Ren's Big Top · Ren Turns One",
       'LOCATION:10 Valley View Circle\\, Bellingham\\, WA 98229',
       'DESCRIPTION:Ren\'s first birthday. Parking is limited\\, so please carpool. https://renhorsman.com',
