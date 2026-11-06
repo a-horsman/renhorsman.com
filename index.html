@@ -238,7 +238,6 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
     <li><a href="#invitation">Invitation</a></li>
     <li><a href="#afternoon">The Afternoon</a></li>
     <li><a href="#photos">Photos</a></li>
-    <li><a href="#details">Details</a></li>
     <li><a href="#sleepover">Sleepover</a></li>
     <li><a href="#rsvp">RSVP</a></li>
   </ul>
@@ -328,19 +327,6 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
 </section>
 
 <div class="divider"></div>
-
-<section id="details">
-  <div class="wrap center reveal">
-    <div class="label">For our guests</div>
-    <h2>The Details</h2>
-    <div class="details">
-      <div class="poster"><span class="label">When</span><h3>Saturday, December 19, 2026</h3><p>Beginning at 11:30am.</p><button class="btn" id="cal">Add to calendar</button></div>
-      <div class="poster"><span class="label">Where</span><h3>10 Valley View Circle</h3><p>Bellingham, WA 98229</p><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=10%20Valley%20View%20Circle%20Bellingham%20WA%2098229">Get directions</a></div>
-      <div class="poster"><span class="label">Parking</span><h3>Limited, so please carpool</h3><p>Space near the house is tight, so coming together in one car helps everyone find a spot. Some guests will receive special parking directions from us before the party. If you get them, please follow those instead.</p></div>
-      <div class="poster"><span class="label">Attire</span><h3>Festive</h3><p>Something merry and bright. It's December in Bellingham, so bring a warm coat for the walk in.</p></div>
-    </div>
-  </div>
-</section>
 
 <section id="sleepover" class="stripe-bg">
   <div class="wrap center reveal">
@@ -465,18 +451,6 @@ footer p{font-family:var(--poster);font-size:1.4rem;margin:12px 0 22px}
     document.getElementById('m').textContent=pad(Math.floor(d/6e4)%60);
     document.getElementById('s').textContent=pad(Math.floor(d/1e3)%60);}
   tick();setInterval(tick,1000);
-
-  // Add to calendar (.ics)
-  document.getElementById('cal').addEventListener('click',function(){
-    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ren Turns One//EN','BEGIN:VEVENT',
-      'UID:ren-turns-one-20261219@renhorsman.com','DTSTAMP:20261101T000000Z',
-      'DTSTART:20261219T193000Z','DTEND:20261219T223000Z',
-      "SUMMARY:Ren's Big Top · Ren Turns One",
-      'LOCATION:10 Valley View Circle\\, Bellingham\\, WA 98229',
-      'DESCRIPTION:Ren\'s first birthday. Parking is limited\\, so please carpool. https://renhorsman.com',
-      'END:VEVENT','END:VCALENDAR'].join('\r\n');
-    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download='ren-turns-one.ics';document.body.appendChild(a);a.click();a.remove();});
 
   // Scroll reveal
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
